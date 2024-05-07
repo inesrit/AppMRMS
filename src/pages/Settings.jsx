@@ -58,9 +58,18 @@ function Settings() {
 
     async function saveDetails(event) {
         console.log(patientDetails);
+        const patientIdCookie = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('patientId='))
+            ?.split('=')[1];
+        const updatedPatient = {
+            ...patientDetails,
+            patientid: patientIdCookie
+        };
+        console.log(updatedPatient)
         event.preventDefault();
         try {
-            const response = await axios.put("https://mrms-96547282c657.herokuapp.com/api/v1/patient/update", patientDetails, {
+            const response = await axios.put("https://mrms-96547282c657.herokuapp.com/api/v1/patient/update", updatedPatient, {
                 withCredentials: true
             });
             alert("Details Updated Successfully");
