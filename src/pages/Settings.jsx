@@ -30,9 +30,13 @@ function Settings() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        async function fetchPatientDetails() {
+        const fetchPatientDetails = async () => {
             try {
-                const response = await axios.get('https://mrms-96547282c657.herokuapp.com/api/v1/patient/details', {
+                const patientIdCookie = document.cookie
+                    .split('; ')
+                    .find(row => row.startsWith('patientId='))
+                    .split('=')[1];
+                const response = await axios.get(`https://mrms-96547282c657.herokuapp.com/api/v1/patient/patient-details?patientId=${patientIdCookie}`, {
                     withCredentials: true
                 });
                 const patientData = response.data;
@@ -44,10 +48,11 @@ function Settings() {
                         return acc;
                     }, {})
                 });
-            } catch (err) {
-                console.error("Error fetching patient details:", err);
+            } catch (error) {
+                console.error('Error fetching appointments:', error);
             }
-        }
+        };
+
         fetchPatientDetails();
     }, []);
 
