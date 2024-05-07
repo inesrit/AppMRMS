@@ -12,14 +12,14 @@ import Navbar from './../components/Navbar';
  */
 
 function Settings() {
-    
+
     const [patientDetails, setPatientDetails] = useState({
         patientName: "",
         email: "",
         password: "",
         address: "",
         contactNumber: "",
-        birthDate: "",  
+        birthDate: "",
         weight: "",
         height: "",
         healthcareId: "",
@@ -61,8 +61,8 @@ function Settings() {
         event.preventDefault();
         try {
             const response = await axios.put("https://mrms-96547282c657.herokuapp.com/api/v1/patient/update", patientDetails, {
-                    withCredentials: true
-                });
+                withCredentials: true
+            });
             alert("Details Updated Successfully");
             navigate('/settings');
         } catch (err) {
@@ -80,8 +80,11 @@ function Settings() {
 
     async function deleteAccount() {
         try {
-            
-            const response = await axios.delete('https://mrms-96547282c657.herokuapp.com/api/v1/patient/delete', {
+            const patientIdCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('patientId='))
+                .split('=')[1];
+            const response = await axios.delete('https://mrms-96547282c657.herokuapp.com/api/v1/patient/delete?patientId=${patientIdCookie}', {
                 withCredentials: true
             });
             navigate('/signin');
@@ -104,7 +107,7 @@ function Settings() {
                             <h3 className="mb-4 text-xl font-semibold dark:text-white">General Information</h3>
                             <form onSubmit={saveDetails}>
                                 <div className="grid grid-cols-6 gap-6">
-                                    { /* Each input field */ }
+                                    { /* Each input field */}
                                     <InputField
                                         id="patientName"
                                         name="patientName"
@@ -154,7 +157,7 @@ function Settings() {
                                         id="birthDate"
                                         name="birthDate"
                                         label="Birthdate"
-                                        type="date"  
+                                        type="date"
                                         value={patientDetails.birthDate}
                                         onChange={handleChange}
                                     />
@@ -207,8 +210,8 @@ function Settings() {
                                         <button type="submit" className="text-white bg-teal-400 hover:bg-teal-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save all</button>
                                     </div>
                                     <div class="col-span-6 sm:col-full">
-                                     <button class="text-white bg-teal-400 hover:bg-teal-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={deleteAccount}>Delete Account</button>
-                                     </div>
+                                        <button class="text-white bg-teal-400 hover:bg-teal-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={deleteAccount}>Delete Account</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
