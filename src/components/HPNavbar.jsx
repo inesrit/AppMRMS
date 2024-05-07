@@ -27,12 +27,13 @@ function HPNavbar() {
         event.preventDefault();
         try {
             await axios.post("https://mrms-96547282c657.herokuapp.com/api/v1/user/logout", {
+                withCredentials: true
             }).then((res) => {
                 document.cookie = 'userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                 document.cookie = 'JSESSIONID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                 console.log(res.data);
             }, fail => {
-                console.error(fail); 
+                console.error(fail);
             });
             navigate('/hpsignin');
         }
@@ -43,23 +44,23 @@ function HPNavbar() {
 
     useEffect(() => {
         const fetchUser = async () => {
-          try {
-            const userIdCookie = document.cookie
-              .split('; ')
-              .find(row => row.startsWith('userId='))
-              .split('=')[1];
-            const response = await axios.get(`https://mrms-96547282c657.herokuapp.com/api/v1/user/user-details?userId=${userIdCookie}`, {
-              withCredentials: true
-            });
-            setUser(response.data);
-            //console.log(response.data);
-          } catch (error) {
-            console.error('Error fetching appointments:', error);
-          }
+            try {
+                const userIdCookie = document.cookie
+                    .split('; ')
+                    .find(row => row.startsWith('userId='))
+                    .split('=')[1];
+                const response = await axios.get(`https://mrms-96547282c657.herokuapp.com/api/v1/user/user-details?userId=${userIdCookie}`, {
+                    withCredentials: true
+                });
+                setUser(response.data);
+                //console.log(response.data);
+            } catch (error) {
+                console.error('Error fetching appointments:', error);
+            }
         };
-    
+
         fetchUser();
-      }, []);
+    }, []);
 
     let [profileDivOpen, setprofileDivOpen] = useState(false)
 

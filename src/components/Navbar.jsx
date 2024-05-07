@@ -28,12 +28,13 @@ function Navbar() {
         event.preventDefault();
         try {
             await axios.post("https://mrms-96547282c657.herokuapp.com/api/v1/patient/logout", {
+                withCredentials: true
             }).then((res) => {
                 document.cookie = 'patientId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                 document.cookie = 'JSESSIONID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                 console.log(res.data);
             }, fail => {
-                console.error(fail); 
+                console.error(fail);
             });
             navigate('/signin');
         }
@@ -44,23 +45,23 @@ function Navbar() {
 
     useEffect(() => {
         const fetchPatient = async () => {
-          try {
-            const patientIdCookie = document.cookie
-              .split('; ')
-              .find(row => row.startsWith('patientId='))
-              .split('=')[1];
-            const response = await axios.get(`https://mrms-96547282c657.herokuapp.com/api/v1/patient/patient-details?patientId=${patientIdCookie}`, {
-              withCredentials: true
-            });
-            setPatient(response.data);
-            //console.log(response.data);
-          } catch (error) {
-            console.error('Error fetching appointments:', error);
-          }
+            try {
+                const patientIdCookie = document.cookie
+                    .split('; ')
+                    .find(row => row.startsWith('patientId='))
+                    .split('=')[1];
+                const response = await axios.get(`https://mrms-96547282c657.herokuapp.com/api/v1/patient/patient-details?patientId=${patientIdCookie}`, {
+                    withCredentials: true
+                });
+                setPatient(response.data);
+                //console.log(response.data);
+            } catch (error) {
+                console.error('Error fetching appointments:', error);
+            }
         };
-    
+
         fetchPatient();
-      }, []);
+    }, []);
 
     let [profileDivOpen, setprofileDivOpen] = useState(false)
 
@@ -171,7 +172,7 @@ function Navbar() {
 
 
             {/* side nav bar */}
-            
+
 
             <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
                 <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
