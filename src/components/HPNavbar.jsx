@@ -26,7 +26,7 @@ function HPNavbar() {
     async function logOut(event) {
         event.preventDefault();
         try {
-            await axios.post("http://localhost:8080/api/v1/user/logout", {
+            await axios.post("https://mrms-96547282c657.herokuapp.com/api/v1/user/logout", {
             }).then((res) => {
                 document.cookie = 'userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                 document.cookie = 'JSESSIONID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
@@ -48,7 +48,7 @@ function HPNavbar() {
               .split('; ')
               .find(row => row.startsWith('userId='))
               .split('=')[1];
-            const response = await axios.get(`http://localhost:8080/api/v1/user/user-details?userId=${userIdCookie}`, {
+            const response = await axios.get(`https://mrms-96547282c657.herokuapp.com/api/v1/user/user-details?userId=${userIdCookie}`, {
               withCredentials: true
             });
             setUser(response.data);
