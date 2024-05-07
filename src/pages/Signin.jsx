@@ -3,6 +3,12 @@ import {Link, useNavigate} from 'react-router-dom';
 import axios from "axios";
 import Pic from './../assets/Medical-health-logo-design-on-transparent-background-PNG.png';
 
+/**
+ * sign in page - patient
+ * 
+ * @author Ines Rita
+ */
+
 function Signin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

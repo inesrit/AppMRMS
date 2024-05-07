@@ -1,7 +1,7 @@
 /**
- * Home page
+ * Access page - Patient
  * 
- * This is the main landing page for the application
+ * This is the page where access request is delegated
  * 
  * @author Ines Rita
  */

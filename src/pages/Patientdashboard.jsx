@@ -17,6 +17,7 @@ import {
   from "@fortawesome/free-solid-svg-icons"
 
 /**
+ * Patient dashboard - patient
  * 
  * @author Ines Rita
  */

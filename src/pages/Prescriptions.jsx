@@ -1,7 +1,7 @@
 /**
- * Home page
+ * Prescription page - Patient
  * 
- * This is the main landing page for the application
+ * This is the page for prescriptions to be managed 
  * 
  * @author Ines Rita
  */
@@ -83,9 +83,9 @@ function Prescriptions() {
 
       const patientId = parseInt(patientIdString);
       const userId = parseInt(formData.userid);
-      // Prepare request body
+      
       const requestBody = {
-        patientId: patientId, // or simply patientId,
+        patientId: patientId, 
         userId: userId,
         pxName: formData.pxName,
         pxDose: formData.pxDose,
@@ -99,13 +99,13 @@ function Prescriptions() {
       await axios.post('https://mrms-96547282c657.herokuapp.com/api/v1/prescription/create', requestBody, {
         withCredentials: true
       });
-      // Close modal after successful submission
+      
       
       handleCloseModal();
 
     } catch (error) {
       console.error('Error creating prescription:', error);
-      // Handle error
+      
     }
   };
 
@@ -371,7 +371,7 @@ function Prescriptions() {
 
 
 
-                            {/* =====================Order Table===================== */}
+                            {/* ===================== Table===================== */}
                             <div className="row">
                               <div className="col-lg-12">
                                 <div className="card-style mb-3">

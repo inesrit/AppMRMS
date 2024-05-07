@@ -1,7 +1,7 @@
 /**
- * Home page
+ * Appointments page - Healthcare provider
  * 
- * This is the main landing page for the application
+ * This is the page where appointments are managed
  * 
  * @author Ines Rita
  */
@@ -93,9 +93,8 @@ function HPAppointments() {
 
       const userId = parseInt(userIdString);
       const patientId = parseInt(formData.patientid);
-      // Prepare request body
       const requestBody = {
-        patientId: patientId, // or simply patientId,
+        patientId: patientId, 
         userId: userId,
         visitType: formData.visitType,
         appLocation: formData.appLocation,
@@ -108,11 +107,11 @@ function HPAppointments() {
       await axios.post('https://mrms-96547282c657.herokuapp.com/api/v1/appointment/create', requestBody, {
         withCredentials: true
       });
-      // Close modal after successful submission
+      
       handleClose();
     } catch (error) {
       console.error('Error creating appointment:', error);
-      // Handle error
+      
     }
   };
 
@@ -181,7 +180,7 @@ function HPAppointments() {
 
     } catch (error) {
       console.error('Error updating appointment status:', error);
-      // Handle error
+      
     }
   };
 
@@ -189,7 +188,7 @@ function HPAppointments() {
     try {
       await axios.put(`https://mrms-96547282c657.herokuapp.com/api/v1/appointment/update-status?appointmentId=${appointmentId}&status=DENIED`);
 
-      // Update the appointments state directly
+      
       setAppointments(prevAppointments => {
         return prevAppointments.map(appointment => {
           if (appointment.appointmentid === appointmentId) {
@@ -201,7 +200,7 @@ function HPAppointments() {
       });
     } catch (error) {
       console.error('Error updating appointment status to DENIED:', error);
-      // Handle error
+      
     }
   };
 
@@ -210,9 +209,9 @@ function HPAppointments() {
 
       const index = appointments.findIndex(appointment => appointment.appointmentid === appointmentId);
       console.log(index)
-      // Make sure the appointment is found
+      
       if (index !== -1) {
-        // Create the updated appointment object
+        
         const updatedAppointment = {
           ...appointments[index], // Get the existing appointment
           visitType: visitType,
@@ -234,7 +233,7 @@ function HPAppointments() {
       }
     } catch (error) {
       console.error('Error updating appointment:', error);
-      // Handle error
+      
     }
   };
 
@@ -505,7 +504,7 @@ function HPAppointments() {
 
 
 
-                            {/* =====================Order Table===================== */}
+                            {/* =====================Table===================== */}
                             <div className="row">
                               <div className="col-lg-12">
                                 <div className="card-style mb-3">

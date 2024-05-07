@@ -1,7 +1,7 @@
 /**
- * Home page
+ * Patient list page - healthcare provider
  * 
- * This is the main landing page for the application
+ * This is the page where healthcare provider's patients are displayed in a list with link access
  * 
  * @author Ines Rita
  */

@@ -11,7 +11,7 @@ import {
     from "@fortawesome/free-solid-svg-icons"
 
 /**
- * Navbar component
+ * Navbar component for healthcare provider
  * 
  * This adds the navbar on the side of the page
  * 
@@ -32,7 +32,7 @@ function HPNavbar() {
                 document.cookie = 'JSESSIONID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                 console.log(res.data);
             }, fail => {
-                console.error(fail); // Error!
+                console.error(fail); 
             });
             navigate('/hpsignin');
         }

@@ -2,15 +2,24 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './../components/Navbar';
+
+/**
+ * settings - patient
+ * 
+ * Page to update patient profile settings
+ * 
+ * @author Ines Rita
+ */
+
 function Settings() {
-    // Initial state with all fields initialized to avoid undefined values
+    
     const [patientDetails, setPatientDetails] = useState({
         patientName: "",
         email: "",
         password: "",
         address: "",
         contactNumber: "",
-        birthDate: "",  // Use null for date input if initial value should represent no selection
+        birthDate: "",  
         weight: "",
         height: "",
         healthcareId: "",
@@ -140,7 +149,7 @@ function Settings() {
                                         id="birthDate"
                                         name="birthDate"
                                         label="Birthdate"
-                                        type="date"  // Changed to 'date' for proper date input
+                                        type="date"  
                                         value={patientDetails.birthDate}
                                         onChange={handleChange}
                                     />

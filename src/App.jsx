@@ -3,7 +3,6 @@ import Signin from './pages/Signin'
 import HPSignup from './pages/HPSignup'
 import HPSignin from './pages/HPSignin'
 import Patientdashboard from './pages/Patientdashboard.jsx'
-import HPdashboard from './pages/HPdashboard.jsx'
 import Access from './pages/Access.jsx'
 import HPAccess from './pages/HPAccess.jsx'
 import Settings from './pages/Settings.jsx'
@@ -34,7 +33,6 @@ function App() {
         <Route path="/hpsignin" element={<HPSignin />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/patientdashboard" element={<Patientdashboard />} />
-        <Route path="/hpdashboard" element={<HPdashboard />} />
         <Route path="/access" element={<Access />} />
         <Route path="/hpaccess" element={<HPAccess />} />
         <Route path="/appointments" element={<Appointments />} />

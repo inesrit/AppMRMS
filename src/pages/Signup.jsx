@@ -4,7 +4,7 @@ import {  useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 /**
- * sign up page
+ * sign up page - patient
  * 
  * @author Ines Rita
  */

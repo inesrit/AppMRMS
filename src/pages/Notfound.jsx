@@ -1,7 +1,5 @@
 /**
- * Home page
- * 
- * This is the main landing page for the application
+ * Not found page
  * 
  * @author Ines Rita
  */

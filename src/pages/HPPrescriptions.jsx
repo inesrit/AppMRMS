@@ -1,7 +1,7 @@
 /**
- * Home page
+ * Prescription page - healthcare provider
  * 
- * This is the main landing page for the application
+ * This is the page for prescriptions to be managed 
  * 
  * @author Ines Rita
  */
@@ -95,9 +95,9 @@ function HPPrescriptions() {
 
             const userId = parseInt(userIdString);
             const patientId = parseInt(formData.patientid);
-            // Prepare request body
+
             const requestBody = {
-                patientId: patientId, // or simply patientId,
+                patientId: patientId,
                 userId: userId,
                 pxName: formData.pxName,
                 pxDose: formData.pxDose,
@@ -114,13 +114,13 @@ function HPPrescriptions() {
 
             const updatedPrescriptions = await fetchPrescriptions();
             setPrescriptions(updatedPrescriptions);
-            // Close modal after successful submission
+
 
             handleCloseModal();
 
         } catch (error) {
             console.error('Error creating prescription:', error);
-            // Handle error
+
         }
     };
 
@@ -188,7 +188,7 @@ function HPPrescriptions() {
 
         } catch (error) {
             console.error('Error updating prescription status:', error);
-            // Handle error
+
         }
     };
 
@@ -207,7 +207,7 @@ function HPPrescriptions() {
             });
         } catch (error) {
             console.error('Error updating prescription status to DENIED:', error);
-            // Handle error
+
         }
     };
 
@@ -240,7 +240,7 @@ function HPPrescriptions() {
             }
         } catch (error) {
             console.error('Error updating prescription:', error);
-            // Handle error
+
         }
     };
 

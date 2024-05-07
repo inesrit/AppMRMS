@@ -19,7 +19,7 @@ import {
   from "@fortawesome/free-solid-svg-icons"
 
 /**
- * 
+ * This is the healthcare provider's view of patient dashboard
  * @author Ines Rita
  */
 function HPPatientdashboard() {

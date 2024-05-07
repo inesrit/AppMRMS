@@ -1,7 +1,7 @@
 /**
- * Home page
+ * Medical Records page - Healthcare provider
  * 
- * This is the main landing page for the application
+ * This is the page where medical records are managed
  * 
  * @author Ines Rita
  */
@@ -92,9 +92,9 @@ function HPMedicalRecords() {
 
       const userId = parseInt(userIdString);
       const patientId = parseInt(formData.patientid);
-      // Prepare request body
+      
       const requestBody = {
-        patientId: patientId, // or simply patientId,
+        patientId: patientId, 
         userId: userId,
         recordDate: formData.recordDate,
         recordName: formData.recordName,
@@ -106,11 +106,11 @@ function HPMedicalRecords() {
       await axios.post('https://mrms-96547282c657.herokuapp.com/api/v1/medical-record/create', requestBody, {
         withCredentials: true
       });
-      // Close modal after successful submission
+      
       handleClose();
     } catch (error) {
       console.error('Error creating medical record:', error);
-      // Handle error
+      
     }
   };
 
@@ -192,7 +192,7 @@ function HPMedicalRecords() {
       }
     } catch (error) {
       console.error('Error updating medical record:', error);
-      // Handle error
+      
     }
   };
 

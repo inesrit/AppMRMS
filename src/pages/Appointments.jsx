@@ -1,7 +1,7 @@
 /**
- * Home page
+ * Appointments page - Patient
  * 
- * This is the main landing page for the application
+ * This is the page where appointments are managed
  * 
  * @author Ines Rita
  */

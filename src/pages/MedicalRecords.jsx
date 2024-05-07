@@ -1,7 +1,7 @@
 /**
- * Home page
+ * Medical Records page - Patient
  * 
- * This is the main landing page for the application
+ * This is the page where medical records are managed
  * 
  * @author Ines Rita
  */
