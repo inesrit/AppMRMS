@@ -53,7 +53,7 @@ function Navbar() {
               withCredentials: true
             });
             setPatient(response.data);
-            console.log(response.data);
+            //console.log(response.data);
           } catch (error) {
             console.error('Error fetching appointments:', error);
           }
